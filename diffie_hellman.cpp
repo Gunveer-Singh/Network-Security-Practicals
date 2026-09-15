@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// Function to calculate (base^exp) % mod
+
 long long powerMod(long long base, long long exp, long long mod)
 {
     long long result = 1;
@@ -19,38 +19,36 @@ int main()
 {
     long long p, g;
     long long privateA, privateB;
-    long long publicA, publicB;
-    long long keyA, keyB;
+    long long x, y;
+    long long K1, K2;
 
-    // Publicly known values
+
     cout << "Enter prime number (p): ";
     cin >> p;
 
     cout << "Enter primitive root (g): ";
     cin >> g;
 
-    // Private keys
-    cout << "Enter private key of Alice: ";
+
+    cout << "Enter big number of Alice (X): ";
     cin >> privateA;
 
-    cout << "Enter private key of Bob: ";
+    cout << "Enter big number of Bob (Y): ";
     cin >> privateB;
 
-    // Generate public keys
-    publicA = powerMod(g, privateA, p);
-    publicB = powerMod(g, privateB, p);
 
-    // Generate shared secret key
-    keyA = powerMod(publicB, privateA, p);
-    keyB = powerMod(publicA, privateB, p);
+    x = powerMod(g, privateA, p);
+    y = powerMod(g, privateB, p);
 
-    cout << "\nAlice's public key: " << publicA << endl;
-    cout << "Bob's public key: " << publicB << endl;
 
-    cout << "\nShared key calculated by Alice: " << keyA << endl;
-    cout << "Shared key calculated by Bob: " << keyB << endl;
+    K1 = powerMod(y, privateA, p);
+    K2 = powerMod(x, privateB, p);
 
-    if (keyA == keyB)
+
+    cout << "\nSecret key calculated by Alice (K1): " << K1 << endl;
+    cout << "Secret key calculated by Bob (K2): " << K2 << endl;
+
+    if (K1 == K2)
         cout << "\nKey exchange successful!" << endl;
     else
         cout << "\nKey exchange failed!" << endl;
