@@ -90,7 +90,7 @@ void runModifiedCaesarCipher()
          << (action == 1 ? modifiedCaesarEncrypt(text, key) : modifiedCaesarDecrypt(text, key)) << endl;
 }
 
-// -------------------- Rail Fence Cipher (as in the submitted program) --------------------
+// -------------------- Rail Fence Cipher --------------------
 string railFenceEncrypt(string input, int rails)
 {
     vector<string> rail(rails);
