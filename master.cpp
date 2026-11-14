@@ -333,7 +333,7 @@ void runMD5()
     string input;
     cout << "Enter a string: ";
     getline(cin >> ws, input);
-    cout << "MD5 Hash Value: " << md5Hash(input) << endl;
+    cout << "MD5 Hash Value (128 bit): " << md5Hash(input) << endl;
 }
 
 // -------------------- Master Menu --------------------
